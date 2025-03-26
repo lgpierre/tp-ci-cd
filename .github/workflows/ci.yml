@@ -23,6 +23,13 @@ jobs:
     needs : test
     runs-on : ubuntu-latest
     steps : 
+      - name: Installer SonarQube Scanner
+        run: |
+          curl -L -o sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+          unzip sonar-scanner.zip
+          mv sonar-scanner-5.0.1.3006-linux sonar-scanner
+          echo "$(pwd)/sonar-scanner/bin" >> $GITHUB_PATH
+
       - name: Analyse du code avec SonarQube
         run: |
           sonar-scanner \
@@ -36,13 +43,6 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Installer SonarQube Scanner
-        run: |
-          curl -L -o sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-          unzip sonar-scanner.zip
-          mv sonar-scanner-5.0.1.3006-linux sonar-scanner
-          echo "$(pwd)/sonar-scanner/bin" >> $GITHUB_PATH
-
       - name: Déclencher le déploiement sur Render
         run: |
           curl -X POST "https://api.render.com/deploy/srv-cvht08jv2p9s73d9s5f0?key=w0XWEMqQD60"
