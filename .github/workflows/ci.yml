@@ -32,7 +32,7 @@ jobs:
 
       - name: Analyse du code avec SonarQube
         run: |
-          sonar-scanner 
+          sonar-scanner \
           -Dsonar.organization=lgpierre \
           -Dsonar.projectKey=lgpierre_tp-ci-cd \
           -Dsonar.sources=. \
