@@ -34,7 +34,7 @@ jobs:
         run: |
           sonar-scanner \
           -Dsonar.organization=lgpierre \
-          -Dsonar.projectKey=lgpierre \
+          -Dsonar.projectKey=tp-ci-cd \
           -Dsonar.sources=. \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=$SONAR_TOKEN
