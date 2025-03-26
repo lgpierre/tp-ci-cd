@@ -37,7 +37,7 @@ jobs:
           -Dsonar.projectKey=lgpierre_tp-ci-cd \
           -Dsonar.sources=. \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.token=${{secrets.TOKEN}}
+          -Dsonar.token=${{secrets.SONAR_TOKEN}}
   
   deploy:
     needs: test
